@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 113625540}
   - component: {fileID: 113625539}
   - component: {fileID: 113625538}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kitchen Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 170778185}
   - component: {fileID: 170778184}
   - component: {fileID: 170778183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kitchen Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,7 +1101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1330417181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tiled Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 1504342912}
   - component: {fileID: 1504342911}
   - component: {fileID: 1504342910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kitchen Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 1788960717}
   - component: {fileID: 1788960716}
   - component: {fileID: 1788960715}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1462,7 @@ GameObject:
   - component: {fileID: 1916616525}
   - component: {fileID: 1916616524}
   - component: {fileID: 1916616523}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kitchen Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
