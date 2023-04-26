@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WinCondition : MonoBehaviour
 {
+    private GameObject winDish;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +16,22 @@ public class WinCondition : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Winning Dish"))
+        {
+            Debug.Log("Hooray!");
+            winDish = other.gameObject;
+            Invoke("DishEaten", 2f);
+
+        }
+    }
+
+    private void DishEaten()
+    {
+        Destroy(winDish);
+    }
+
+    
 }
