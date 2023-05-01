@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   name: Water
-  combineValue: 2
   ingredientMaterial: {fileID: 2100000, guid: 4e603099302b50b42870c6a11dbaf2f0, type: 2}
+  mixingSprite: {fileID: 21300000, guid: cd4b9cc843ccf854eaac6822d30643a0, type: 3}

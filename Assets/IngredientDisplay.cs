@@ -7,16 +7,15 @@ public class IngredientDisplay : MonoBehaviour
 
     public Ingredient ingredient;
 
-    private int combineValue;
+    public Sprite ingredientSprite;
 
     private Material ingredientMaterial;
 
 
     void Start()
     {
-        combineValue = ingredient.combineValue;
+        ingredientSprite = ingredient.mixingSprite;
         GetComponent<Renderer>().material = ingredient.ingredientMaterial;
-        Debug.Log(ingredient.name);
     }
 
 }

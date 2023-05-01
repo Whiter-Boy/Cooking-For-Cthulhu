@@ -7,9 +7,9 @@ public class Ingredient : ScriptableObject
 {
     public new string name;
 
-    public int combineValue;
-
     public Material ingredientMaterial;
+
+    public Sprite mixingSprite;
 
 
 
