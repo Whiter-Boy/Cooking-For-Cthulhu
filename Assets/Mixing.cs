@@ -44,8 +44,8 @@ public class Mixing : MonoBehaviour
 
             newObj.GetComponent<RectTransform>().SetParent(parentPanel.transform);
 
-            newObj.transform.localScale = new Vector3(2, 2, 2);
-            newObj.transform.position = new Vector3(300, 350, 0);
+            newObj.transform.localScale = new Vector3(1, 1, 1);
+            newObj.transform.position = new Vector3(0, 0, 0);
 
             // other
             Destroy(other.gameObject);
