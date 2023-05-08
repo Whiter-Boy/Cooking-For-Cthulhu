@@ -31,4 +31,9 @@ public class MixingBowl : MonoBehaviour, IInteractable
         Cursor.lockState = CursorLockMode.None;
         Debug.Log("starting minigame");
     }
+
+    public void MixingIngredients()
+    {
+
+    }
 }

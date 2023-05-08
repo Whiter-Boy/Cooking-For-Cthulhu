@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Mixing : MonoBehaviour
+public class AddIngredients : MonoBehaviour
 {
 
     private IngredientDisplay ingredientsScript;
