@@ -7945,6 +7945,7 @@ MonoBehaviour:
   player: {fileID: 461432357}
   minigamePanel: {fileID: 1114087995}
   progressBar: {fileID: 80131234}
+  getIngredients: {fileID: 811578002}
 --- !u!1 &1472716816
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,6 +38,8 @@ public class AddIngredients : MonoBehaviour
             // Creating sprite for minigame
             GameObject newObj = new GameObject();
 
+            newObj.name = ingredientsScript.ingredient.name;
+
             Image NewImage = newObj.AddComponent<Image>();
 
             NewImage.sprite = ingredientsScript.ingredient.mixingSprite;

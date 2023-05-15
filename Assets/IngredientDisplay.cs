@@ -17,5 +17,6 @@ public class IngredientDisplay : MonoBehaviour
         ingredientSprite = ingredient.mixingSprite;
         GetComponent<Renderer>().material = ingredient.ingredientMaterial;
     }
+   
 
 }

@@ -14,14 +14,20 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     bool minigameStarted;
 
-    IngredientDisplay[] ingredients;
+    [SerializeField]
+    private GameObject getIngredients;
+
+    List<string> ingredients = new List<string>();
 
     private float fillAmount;
+
+    private bool recievedIngredient;
     // Start is called before the first frame update
     void Start()
     {
         minigamePanel.SetActive(false);
         minigameStarted = false;
+        recievedIngredient = false;
     }
 
     // Update is called once per frame
@@ -35,6 +41,7 @@ public class MixingBowl : MonoBehaviour, IInteractable
         if (fillAmount == 100)
         {
             MingameFinish();
+            
         }
     }
 
@@ -52,12 +59,30 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     public void MingameFinish()
     {
-        ingredients = gameObject.GetComponentsInChildren<IngredientDisplay>();
 
-        if (ingredients[0].ingredient.name == "flour")
+        Transform[] mixingContent = getIngredients.GetComponentsInChildren<Transform>();
+        
+        foreach (Transform t in mixingContent)
         {
-            Debug.Log("Flour");
+            if (t!= null && t.gameObject != null)
+            {
+                ingredients.Add(t.gameObject.name);
+            }
         }
+
+        //for(int i = 0; i < ingredients.Count; i++)
+        //{
+        //    Debug.Log(ingredients[i]);
+        //}
+
+        if (ingredients.Contains("Flour") && ingredients.Contains("Water") && ingredients.Contains("Butter"))
+        {
+            Debug.Log("Give player batter");
+        }
+
+
+
+
     }
 
 }

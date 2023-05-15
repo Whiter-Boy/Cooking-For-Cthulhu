@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Batter
   m_EditorClassIdentifier: 
   name: Batter
+  IngredientNumber: 3
   ingredientMaterial: {fileID: 2100000, guid: b2eea6ca6f5ffab458fc52b200c283be, type: 2}
   mixingSprite: {fileID: 21300000, guid: f38d16eaac6316049b2fafcc5b5c81ae, type: 3}
