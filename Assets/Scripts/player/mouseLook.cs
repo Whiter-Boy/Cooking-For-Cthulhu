@@ -42,4 +42,9 @@ public class mouseLook : MonoBehaviour
     {
         notInMinigame = false;
     }
+
+    public void MinigameEnd()
+    {
+        notInMinigame = true;
+    }
 }

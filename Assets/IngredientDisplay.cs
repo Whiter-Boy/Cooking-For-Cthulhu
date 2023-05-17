@@ -11,11 +11,18 @@ public class IngredientDisplay : MonoBehaviour
 
     private Material ingredientMaterial;
 
+    public int ingredientMixingNumber;
+
 
     void Start()
     {
         ingredientSprite = ingredient.mixingSprite;
-        GetComponent<Renderer>().material = ingredient.ingredientMaterial;
+        ingredientMixingNumber = ingredient.IngredientNumber;
+        if(TryGetComponent<Renderer>(out Renderer renderer))
+        {
+            GetComponent<Renderer>().material = ingredient.ingredientMaterial;
+        }
+            
     }
    
 

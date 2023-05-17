@@ -38,6 +38,11 @@ public class ObjInteract : MonoBehaviour
                 CurrentObject.gameObject.TryGetComponent(out IInteractable interactObj);
                 interactObj.Interact();
 
+                Debug.Log("Interacting");
+                return;
+            }
+            else
+            {
                 return;
             }
 

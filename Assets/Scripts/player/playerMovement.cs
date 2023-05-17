@@ -60,4 +60,10 @@ public class playerMovement : MonoBehaviour
     {
         notInMinigame = false;
     }
+
+    public void MinigameEnd()
+    {
+        notInMinigame = true;
+    }
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MixingBowl : MonoBehaviour, IInteractable
 {
@@ -17,17 +18,15 @@ public class MixingBowl : MonoBehaviour, IInteractable
     [SerializeField]
     private GameObject getIngredients;
 
-    List<string> ingredients = new List<string>();
-
     private float fillAmount;
 
-    private bool recievedIngredient;
+
     // Start is called before the first frame update
     void Start()
     {
         minigamePanel.SetActive(false);
         minigameStarted = false;
-        recievedIngredient = false;
+        
     }
 
     // Update is called once per frame
@@ -59,30 +58,46 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     public void MingameFinish()
     {
+        List<int> ingredients = new List<int>();
 
-        Transform[] mixingContent = getIngredients.GetComponentsInChildren<Transform>();
+        IngredientDisplay[] mixingContent = getIngredients.GetComponentsInChildren<IngredientDisplay>();
         
-        foreach (Transform t in mixingContent)
+        foreach (IngredientDisplay t in mixingContent)
         {
             if (t!= null && t.gameObject != null)
             {
-                ingredients.Add(t.gameObject.name);
+                ingredients.Add(t.gameObject.GetComponent<IngredientDisplay>().ingredientMixingNumber);
             }
+
         }
 
-        //for(int i = 0; i < ingredients.Count; i++)
-        //{
-        //    Debug.Log(ingredients[i]);
-        //}
+        int ingredientTotal = ingredients.Sum();
 
-        if (ingredients.Contains("Flour") && ingredients.Contains("Water") && ingredients.Contains("Butter"))
+
+
+        if (ingredientTotal == 3)
         {
             Debug.Log("Give player batter");
         }
 
 
 
+        // Stop minigame from happening
+        fillAmount = 0;
+        minigameStarted = false;
+        Invoke("AutoCloseMinigame", 2.0f);
 
+
+
+    }
+
+    public void AutoCloseMinigame()
+    {
+        progressBar.gameObject.GetComponent<ProgressBar>().GetCurrentFill(fillAmount);
+        playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();
+        player.gameObject.GetComponent<playerMovement>().MinigameEnd();
+        minigamePanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 }

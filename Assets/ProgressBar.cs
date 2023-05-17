@@ -28,7 +28,7 @@ public class ProgressBar : MonoBehaviour
         if (fillAmount <= 1f)
         {
             mask.fillAmount = fillAmount;
-            Debug.Log(fillAmount);
+            //Debug.Log(fillAmount);
         }
     }
 }

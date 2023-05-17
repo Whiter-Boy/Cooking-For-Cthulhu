@@ -12,6 +12,8 @@ public class AddIngredients : MonoBehaviour
 
     public GameObject parentPanel;
 
+    private Ingredient currentIngredient;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,12 @@ public class AddIngredients : MonoBehaviour
 
             newObj.name = ingredientsScript.ingredient.name;
 
+            Ingredient otherIngredient = other.gameObject.GetComponent<IngredientDisplay>().ingredient;
+
+            newObj.AddComponent<IngredientDisplay>().ingredient = otherIngredient;
+
+            newObj.GetComponent<IngredientDisplay>().ingredientMixingNumber = ingredientsScript.ingredient.IngredientNumber;
+
             Image NewImage = newObj.AddComponent<Image>();
 
             NewImage.sprite = ingredientsScript.ingredient.mixingSprite;
@@ -52,10 +60,12 @@ public class AddIngredients : MonoBehaviour
             // other
             Destroy(other.gameObject);
 
-            for(int i = 0; i < ingredients.Count; i++)
-            {
-                Debug.Log(ingredients[i]);
-            }
+
+            // checking if an ingredient gets added to the list
+            //for(int i = 0; i < ingredients.Count; i++)
+            //{
+           //     Debug.Log(ingredients[i]);
+           // }
 
         }
     }
