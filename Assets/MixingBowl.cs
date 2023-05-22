@@ -20,6 +20,10 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     private float fillAmount;
 
+    public List<Ingredient> product;
+
+    public GameObject ingredientPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -75,9 +79,11 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
 
 
-        if (ingredientTotal == 3)
+        if (ingredientTotal == 10)
         {
             Debug.Log("Give player batter");
+            ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
+            Instantiate(ingredientPrefab, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z + -1f), Quaternion.identity);
         }
 
 

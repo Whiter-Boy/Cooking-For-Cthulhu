@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Butter
   m_EditorClassIdentifier: 
   name: Butter
-  IngredientNumber: 1
+  IngredientNumber: 3
   ingredientMaterial: {fileID: 2100000, guid: 0058c50613f2cc24280480313969abda, type: 2}
   mixingSprite: {fileID: 21300000, guid: 72beb8969a029cc4f961ccd1ea8e7356, type: 3}

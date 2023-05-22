@@ -39,6 +39,8 @@ public class ObjInteract : MonoBehaviour
                 interactObj.Interact();
 
                 Debug.Log("Interacting");
+
+                CurrentObject = null;
                 return;
             }
             else
