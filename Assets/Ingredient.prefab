@@ -127,6 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfa23451379fd74092c2a227aa7495e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: {fileID: 0}
+  ingredient: {fileID: 11400000, guid: 9e33a38cb1e7836498c802baff4aad60, type: 2}
   ingredientSprite: {fileID: 0}
   ingredientMixingNumber: 0
