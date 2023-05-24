@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Winning Dish
   - Ingredient
+  - Content
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,8 @@ public class IngredientDisplay : MonoBehaviour
 
     public Sprite ingredientSprite;
 
+    private Mesh ingredientMesh;
+
     private Material ingredientMaterial;
 
     public int ingredientMixingNumber;
@@ -22,7 +24,36 @@ public class IngredientDisplay : MonoBehaviour
         {
             GetComponent<Renderer>().material = ingredient.ingredientMaterial;
         }
+        if(TryGetComponent<MeshFilter>(out MeshFilter mesh))
+        {
+            GetComponent<MeshFilter>().mesh = ingredient.ingredientMesh;
+        }
+        
+        if(TryGetComponent<MeshCollider>(out MeshCollider meshCollider))
+        {
+            GetComponent<MeshCollider>().sharedMesh = ingredient.ingredientMesh;
+        }
+
+        if(TryGetComponent<Transform>(out Transform transform))
+        {
+            transform.localScale = new Vector3(ingredient.ingredientScale.x, ingredient.ingredientScale.y, ingredient.ingredientScale.z);
+        }
             
+    }
+
+    void Update()
+    {
+        if (transform.parent != null)
+        {
+            if (transform.parent.gameObject.CompareTag("Content"))
+            {
+                if (TryGetComponent<Transform>(out Transform transform))
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+
+            }
+        }
     }
    
 

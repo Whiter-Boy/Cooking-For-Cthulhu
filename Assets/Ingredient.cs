@@ -13,6 +13,9 @@ public class Ingredient : ScriptableObject
 
     public Sprite mixingSprite;
 
+    public Mesh ingredientMesh;
+
+    public Vector3 ingredientScale;
 
 
 }

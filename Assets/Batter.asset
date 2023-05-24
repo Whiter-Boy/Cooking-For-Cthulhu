@@ -16,3 +16,5 @@ MonoBehaviour:
   IngredientNumber: 10
   ingredientMaterial: {fileID: 2100000, guid: b2eea6ca6f5ffab458fc52b200c283be, type: 2}
   mixingSprite: {fileID: 21300000, guid: f38d16eaac6316049b2fafcc5b5c81ae, type: 3}
+  ingredientMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  ingredientScale: {x: 0.4, y: 0.5, z: 0.4}
