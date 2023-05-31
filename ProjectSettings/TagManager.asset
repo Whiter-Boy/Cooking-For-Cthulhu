@@ -7,6 +7,8 @@ TagManager:
   - Winning Dish
   - Ingredient
   - Content
+  - Canvas
+  - Collect
   layers:
   - Default
   - TransparentFX
