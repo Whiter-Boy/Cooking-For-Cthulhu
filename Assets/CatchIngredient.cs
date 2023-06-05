@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CatchIngredient : MonoBehaviour
 {
     private int collectedIngredients;
     private int ingredientsSpawned;
 
-    private TMPro
+    [SerializeField]
+    private TextMeshProUGUI count;
 
     [SerializeField]
     private GameObject boilPot;
@@ -15,6 +17,7 @@ public class CatchIngredient : MonoBehaviour
     void Start()
     {
         collectedIngredients = 0;
+        count.SetText("0/10");
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class CatchIngredient : MonoBehaviour
             collectedIngredients++;
             ingredientsSpawned++;
             boilPot.GetComponent<BoilingPot>().CollectedIngredients(collectedIngredients);
+            count.SetText(collectedIngredients + "/10");
         }
     }
 

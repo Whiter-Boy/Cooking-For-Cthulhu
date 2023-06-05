@@ -11,6 +11,8 @@ public class Ingredient : ScriptableObject
 
     public Material ingredientMaterial;
 
+    public Material ingredientMaterial2;
+
     public Sprite mixingSprite;
 
     public Mesh ingredientMesh;

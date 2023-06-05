@@ -72,7 +72,7 @@ public class BoilingPot : MonoBehaviour, IInteractable
     {
         if (collected != 10)
         {
-            Invoke("SpawnIngredient", 0.5f);
+            Invoke("SpawnIngredient", 0.1f);
         }
         
         
