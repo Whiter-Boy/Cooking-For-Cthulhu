@@ -5,7 +5,9 @@ using UnityEngine;
 public class CatchIngredient : MonoBehaviour
 {
     private int collectedIngredients;
-    private int ingredientsTotal;
+    private int ingredientsSpawned;
+
+    private TMPro
 
     [SerializeField]
     private GameObject boilPot;
@@ -18,7 +20,8 @@ public class CatchIngredient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        boilPot.GetComponent<BoilingPot>().CollectedIngredients(collectedIngredients);
+        
+
         Debug.Log(collectedIngredients);
     }
 
@@ -28,17 +31,15 @@ public class CatchIngredient : MonoBehaviour
         {
             Destroy(other.gameObject);
             collectedIngredients++;
-            ingredientsTotal++;
-        }
-        if (ingredientsTotal == 10)
-        {
-            
+            ingredientsSpawned++;
+            boilPot.GetComponent<BoilingPot>().CollectedIngredients(collectedIngredients);
         }
     }
 
     public void MissIngredient()
     {
-        collectedIngredients--;
+        ingredientsSpawned--;
+        boilPot.GetComponent<BoilingPot>().CollectedIngredients(collectedIngredients);
     }
 
 }

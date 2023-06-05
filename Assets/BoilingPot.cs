@@ -49,7 +49,7 @@ public class BoilingPot : MonoBehaviour, IInteractable
         minigamePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         //minigameStart = true;
-        InvokeRepeating("SpawnIngredient", 2, 1.5f);
+        Invoke("SpawnIngredient", 2f);
         Debug.Log("starting minigame");
     }
 
@@ -70,10 +70,13 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public void CollectedIngredients(int collected)
     {
-        if (collected == 10)
+        if (collected != 10)
         {
-            CancelInvoke();
+            Invoke("SpawnIngredient", 0.5f);
         }
+        
+        
+        MinigameEnd();
     }
 
 
