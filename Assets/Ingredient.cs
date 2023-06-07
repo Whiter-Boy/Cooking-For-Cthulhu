@@ -19,5 +19,7 @@ public class Ingredient : ScriptableObject
 
     public Vector3 ingredientScale;
 
+    public GameObject CuttedObject;
+
 
 }

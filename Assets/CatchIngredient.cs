@@ -46,4 +46,10 @@ public class CatchIngredient : MonoBehaviour
         boilPot.GetComponent<BoilingPot>().CollectedIngredients(collectedIngredients);
     }
 
+    public void MinigameEnd()
+    {
+        collectedIngredients = 0;
+        ingredientsSpawned = 0;
+    }
+
 }

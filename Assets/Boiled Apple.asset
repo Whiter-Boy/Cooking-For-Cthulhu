@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621e580567200b940a54ee119d500394, type: 3}
+  m_Name: Boiled Apple
+  m_EditorClassIdentifier: 
+  name: Boiled Apple
+  IngredientNumber: 17
+  ingredientMaterial: {fileID: 2100000, guid: efd7376662045df4bbbca8f2295f46f5, type: 2}
+  ingredientMaterial2: {fileID: 0}
+  mixingSprite: {fileID: 21300000, guid: 4494aa71ba56bc743ab98d51a79d18d8, type: 3}
+  ingredientMesh: {fileID: 6324286251053626827, guid: 8f8017deb0947f840805b70740ff8755, type: 3}
+  ingredientScale: {x: 2, y: 2, z: 2}

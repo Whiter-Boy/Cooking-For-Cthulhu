@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class MixingBowl : MonoBehaviour, IInteractable
 {
@@ -23,6 +24,8 @@ public class MixingBowl : MonoBehaviour, IInteractable
     public List<Ingredient> product;
 
     public GameObject ingredientPrefab;
+
+    public GameObject noIngredients;
 
 
     // Start is called before the first frame update
@@ -52,12 +55,20 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        playerCamera.gameObject.GetComponent<mouseLook>().MinigameStart();
-        player.gameObject.GetComponent<playerMovement>().MinigameStart();
-        minigamePanel.SetActive(true);
-        minigameStarted = true;
-        Cursor.lockState = CursorLockMode.None;
-        Debug.Log("starting minigame");
+        if (getIngredients.transform.childCount != 0)
+        {
+            playerCamera.gameObject.GetComponent<mouseLook>().MinigameStart();
+            player.gameObject.GetComponent<playerMovement>().MinigameStart();
+            minigamePanel.SetActive(true);
+            minigameStarted = true;
+            Cursor.lockState = CursorLockMode.None;
+            Debug.Log("starting minigame");
+        }
+        else
+        {
+            noIngredients.SetActive(true);
+            Invoke("TurnOffText", 2f);
+        }
     }
 
     public void MingameFinish()
@@ -99,11 +110,21 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     public void AutoCloseMinigame()
     {
+        Transform[] contentChildren = getIngredients.transform.GetComponentsInChildren<Transform>();
+        foreach (Transform child in contentChildren)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
         progressBar.gameObject.GetComponent<ProgressBar>().GetCurrentFill(fillAmount);
         playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();
         player.gameObject.GetComponent<playerMovement>().MinigameEnd();
         minigamePanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void TurnOffText()
+    {
+        noIngredients.SetActive(false);
     }
 
 }

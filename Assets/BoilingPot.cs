@@ -21,6 +21,14 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     GameObject changeIngredientSize;
 
+    public List<Ingredient> product;
+
+    public GameObject ingredientPrefab;
+
+    public GameObject collectPot;
+
+    public GameObject noIngredients;
+
 
 
     // Start is called before the first frame update
@@ -43,14 +51,22 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        ingredient = content.transform.GetChild(0).gameObject;
-        playerCamera.gameObject.GetComponent<mouseLook>().MinigameStart();
-        player.gameObject.GetComponent<playerMovement>().MinigameStart();
-        minigamePanel.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        //minigameStart = true;
-        Invoke("SpawnIngredient", 2f);
-        Debug.Log("starting minigame");
+        if (ingredient != null)
+        {
+            ingredient = content.transform.GetChild(0).gameObject;
+            playerCamera.gameObject.GetComponent<mouseLook>().MinigameStart();
+            player.gameObject.GetComponent<playerMovement>().MinigameStart();
+            minigamePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            //minigameStart = true;
+            Invoke("SpawnIngredient", 2f);
+            Debug.Log("starting minigame");
+        }
+        else
+        {
+            noIngredients.SetActive(true);
+            Invoke("TurnOffText", 2f);
+        }
     }
 
     public void SpawnIngredient()
@@ -73,15 +89,33 @@ public class BoilingPot : MonoBehaviour, IInteractable
         if (collected != 10)
         {
             Invoke("SpawnIngredient", 0.1f);
+            
         }
         
         
-        MinigameEnd();
+        if (collected == 10)
+        {
+            Invoke("MinigameEnd", 1.5f);
+        }
     }
 
 
     public void MinigameEnd()
     {
 
+        Destroy(content.transform.GetChild(0).gameObject);
+
+        collectPot.GetComponent<CatchIngredient>().MinigameEnd();
+        ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
+        Instantiate(ingredientPrefab, new Vector3(transform.position.x + -1f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
+        playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();
+        player.gameObject.GetComponent<playerMovement>().MinigameEnd();
+        minigamePanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void TurnOffText()
+    {
+        noIngredients.SetActive(false);
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LimitChildAmount : MonoBehaviour
 {
@@ -18,4 +19,6 @@ public class LimitChildAmount : MonoBehaviour
             }
         }
     }
+        
+
 }
