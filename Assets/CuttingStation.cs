@@ -2,24 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.UI;
 
-public class MixingBowl : MonoBehaviour, IInteractable
+public class CuttingStation : MonoBehaviour, IInteractable
 {
     public GameObject playerCamera;
     public GameObject player;
 
     [SerializeField]
     private GameObject minigamePanel;
-    [SerializeField]
-    private GameObject progressBar;
 
     bool minigameStarted;
 
     [SerializeField]
     private GameObject getIngredients;
-
-    private float fillAmount;
 
     public List<Ingredient> product;
 
@@ -27,34 +22,18 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     public GameObject noIngredients;
 
-    private int i;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         minigamePanel.SetActive(false);
         minigameStarted = false;
-        i = 0;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && minigameStarted)
-        {
-            fillAmount += 4;
-            progressBar.gameObject.GetComponent<ProgressBar>().GetCurrentFill(fillAmount);
-        }
-        if (fillAmount == 100)
-        {
-            MingameFinish();
-            
-        }
+
     }
-
-
 
     public void Interact()
     {
@@ -79,10 +58,10 @@ public class MixingBowl : MonoBehaviour, IInteractable
         List<int> ingredients = new List<int>();
 
         IngredientDisplay[] mixingContent = getIngredients.GetComponentsInChildren<IngredientDisplay>();
-        
+
         foreach (IngredientDisplay t in mixingContent)
         {
-            if (t!= null && t.gameObject != null)
+            if (t != null && t.gameObject != null)
             {
                 ingredients.Add(t.gameObject.GetComponent<IngredientDisplay>().ingredientMixingNumber);
             }
@@ -100,24 +79,10 @@ public class MixingBowl : MonoBehaviour, IInteractable
             Instantiate(ingredientPrefab, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z + -1f), Quaternion.identity);
         }
 
-        if (ingredientTotal == 92)
-        {
-            Debug.Log("Give player seasoned Apple");
-            ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[1];
-            Instantiate(ingredientPrefab, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z + -1f), Quaternion.identity);
-        }
-
-        if (ingredientTotal == 102)
-        {
-            Debug.Log("Give player uncooked Pie");
-            ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[2];
-            Instantiate(ingredientPrefab, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z + -1f), Quaternion.identity);
-        }
-
 
 
         // Stop minigame from happening
-        fillAmount = 0;
+
         minigameStarted = false;
         Invoke("AutoCloseMinigame", 2.0f);
 
@@ -128,26 +93,18 @@ public class MixingBowl : MonoBehaviour, IInteractable
     public void AutoCloseMinigame()
     {
         Transform[] contentChildren = getIngredients.transform.GetComponentsInChildren<Transform>();
-
-        for (contentChildren.Count);
         foreach (Transform child in contentChildren)
         {
-            i++;
-
-            Destroy(child.gameObject);
+            GameObject.Destroy(child.gameObject);
         }
-        Instantiate(contentPrefab, new Vector3(transform.position.x, transform.position.y , transform.position.z, Quaternion.identity);
-        progressBar.gameObject.GetComponent<ProgressBar>().GetCurrentFill(fillAmount);
         playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();
         player.gameObject.GetComponent<playerMovement>().MinigameEnd();
         minigamePanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
-
     }
 
     public void TurnOffText()
     {
         noIngredients.SetActive(false);
     }
-
 }

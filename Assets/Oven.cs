@@ -72,9 +72,10 @@ public class Oven : MonoBehaviour, IInteractable
     {
         Destroy(content.transform.GetChild(0).gameObject);
 
-        if (ingredientNo == 60)
+        if (ingredientNo == 102)
         {
             ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
+            ingredientPrefab.tag = "Winning Dish";
         }
 
         else

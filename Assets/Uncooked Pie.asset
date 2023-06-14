@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621e580567200b940a54ee119d500394, type: 3}
+  m_Name: Uncooked Pie
+  m_EditorClassIdentifier: 
+  name: Uncooked Apple
+  IngredientNumber: 776
+  ingredientMaterial: {fileID: 4310586713465477566, guid: d50eb554e1c315b408e9dd5b68088457, type: 3}
+  ingredientMaterial2: {fileID: 0}
+  mixingSprite: {fileID: 21300000, guid: 519fc9566a5944a45a3cf2e1fb26d8fa, type: 3}
+  ingredientMesh: {fileID: 1749788427702966484, guid: 52cc81a2d3a655d449fc0a7f8498f670, type: 3}
+  ingredientScale: {x: 2, y: 2, z: 2}
+  CuttedObject: {fileID: 0}
