@@ -51,6 +51,8 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        ingredient = content.transform.GetChild(0).gameObject;
+
         if (ingredient != null)
         {
             ingredient = content.transform.GetChild(0).gameObject;
