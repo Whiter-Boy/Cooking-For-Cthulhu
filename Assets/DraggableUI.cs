@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class DraggableUI : MonoBehaviour, IDragHandler
 {
+
+    public GameObject boundry1;
+    public GameObject boundry2;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,23 +24,12 @@ public class DraggableUI : MonoBehaviour, IDragHandler
     {
         Vector3 objPos = new Vector3(Input.mousePosition.x, transform.position.y, transform.position.z);
 
-            if (mouse_over = false)
-            {
-              transform.position = objPos;  
-            }
-            
+        if (this.gameObject.transform.position.x > boundry1.transform.position.x && this.gameObject.transform.position.x < boundry2.transform.position.x)
+        {
+            transform.position = objPos;
+        }
 
-    }
+        
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        mouse_over = true;
-        Debug.Log("Mouse enter");
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        mouse_over = false;
-        Debug.Log("Mouse exit");
     }
 }

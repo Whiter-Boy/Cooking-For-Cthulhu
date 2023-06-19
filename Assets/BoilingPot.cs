@@ -29,7 +29,9 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public GameObject noIngredients;
 
-    private float width;
+    public GameObject boundry1;
+
+    public GameObject boundry2;
 
 
 
@@ -38,7 +40,7 @@ public class BoilingPot : MonoBehaviour, IInteractable
     {
         //minigameStart = false;
         spawnedIngredients = 0;
-        width = minigamePanel.GetComponent<RectTransform>().rect.width;
+        
     }
 
     // Update is called once per frame
@@ -77,7 +79,7 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public void SpawnIngredient()
     {
-        float tempPos = Random.Range(150, 1500);
+        float tempPos = Random.Range(boundry1.transform.position.x, boundry2.transform.position.x);
         GameObject spawnedIngredient = Instantiate(ingredient, new Vector3(tempPos, 1300f, 1f), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform) as GameObject;
         spawnedIngredient.GetComponent<Rigidbody2D>().gravityScale = 30;
         spawnedIngredient.tag = "Collect";
