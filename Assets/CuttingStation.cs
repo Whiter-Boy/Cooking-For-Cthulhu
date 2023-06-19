@@ -80,12 +80,13 @@ public class CuttingStation : MonoBehaviour, IInteractable
         //     ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
         //     Instantiate(ingredientPrefab, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z + -1f), Quaternion.identity);
         // }
-
+        getIngredients.transform.GetChild(0).gameObject.GetComponent<cutIngredient>().minigameFinished = true;
         ingredientNo = getIngredients.transform.GetChild(0).gameObject.GetComponent<IngredientDisplay>().ingredientMixingNumber;
 
         if (ingredientNo == 7)
         {
             ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
+            Instantiate(ingredientPrefab, new Vector3(transform.position.x + -0.95f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
             Instantiate(ingredientPrefab, new Vector3(transform.position.x + -1f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
         }
         // Stop minigame from happening
@@ -99,15 +100,12 @@ public class CuttingStation : MonoBehaviour, IInteractable
 
     public void AutoCloseMinigame()
     {
-        Transform[] contentChildren = getIngredients.transform.GetComponentsInChildren<Transform>();
-        foreach (Transform child in contentChildren)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
+        Destroy(getIngredients.transform.GetChild(0).gameObject);
         playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();
         player.gameObject.GetComponent<playerMovement>().MinigameEnd();
         minigamePanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        getIngredients.transform.GetChild(0).gameObject.GetComponent<cutIngredient>().minigameFinished = false;
     }
 
     public void TurnOffText()

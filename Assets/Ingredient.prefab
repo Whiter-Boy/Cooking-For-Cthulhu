@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8658096799832447454}
   m_Layer: 7
   m_Name: Ingredient
-  m_TagString: Winning Dish
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,9 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfa23451379fd74092c2a227aa7495e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: {fileID: 11400000, guid: ff2e3a0d704380646ba25b423b77192d, type: 2}
+  ingredient: {fileID: 11400000, guid: 5436ec11b1f400745816837fbd1aa559, type: 2}
   ingredientSprite: {fileID: 0}
   ingredientMixingNumber: 0
+  isCuttable: 0
 --- !u!64 &8658096799832447454
 MeshCollider:
   m_ObjectHideFlags: 0

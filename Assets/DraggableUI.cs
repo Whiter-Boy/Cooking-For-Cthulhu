@@ -24,7 +24,7 @@ public class DraggableUI : MonoBehaviour, IDragHandler
     {
         Vector3 objPos = new Vector3(Input.mousePosition.x, transform.position.y, transform.position.z);
 
-        if (this.gameObject.transform.position.x > boundry1.transform.position.x && this.gameObject.transform.position.x < boundry2.transform.position.x)
+        if (objPos.x > (boundry1.transform.position.x + 220f) && objPos.x < (boundry2.transform.position.x - 220f))
         {
             transform.position = objPos;
         }

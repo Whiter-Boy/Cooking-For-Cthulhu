@@ -24,28 +24,39 @@ public class cutIngredient : MonoBehaviour
     public bool alreadyCut = false;
 
     public GameObject cuttingStation;
+
+    public bool minigameFinished;
     
 
     void Awake()
     {
+        minigameFinished = false;
         knife = GameObject.Find("Knife");
     
         oldImage = GetComponent<Image>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         rb.gravityScale = 0.0f;
-        name = oldImage.sprite.name + "_Cut";
+        name = oldImage.sprite.name + "Cut";
 
 
 
         newImage = Resources.Load<Sprite>(name);
 
-        knife = GameObject.FindWithTag("Knife");
-        cuttingStation = GameObject.FindWithTag("Cutting Station");
+        
 
-    }   
-
-    void Update()
+    }
+    
+    public void Start()
     {
+        cuttingStation = GameObject.FindWithTag("Cutting Station");
+        this.gameObject.GetComponent<BoxCollider2D>().size = new Vector3(60f, 60f, 0f);
+    }
+
+    public void Update()
+    {
+        knife = GameObject.FindWithTag("Knife");
+        
+
         dist = Vector3.Distance(knife.transform.position, transform.position);
         // Debug.Log(dist);
         if (dist < 30 && alreadyCut == false)
@@ -62,10 +73,11 @@ public class cutIngredient : MonoBehaviour
 
 
 
-        if (cuts == 5)
+        if (cuts == 5 && minigameFinished != true)
         {
             oldImage.sprite = newImage;
             cuttingStation.GetComponent<CuttingStation>().MinigameFinish();
+
         }
 
 

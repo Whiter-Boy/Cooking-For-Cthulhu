@@ -25,7 +25,6 @@ public class AddIngredients : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void OnTriggerEnter(Collider other)
@@ -53,13 +52,27 @@ public class AddIngredients : MonoBehaviour
 
             NewImage.sprite = ingredientsScript.ingredient.mixingSprite;
 
-            newObj.AddComponent<draganddrop>();
+            
 
             newObj.AddComponent<Rigidbody2D>();
 
-            newObj.AddComponent<PolygonCollider2D>();
-            
-            newObj.AddComponent<cutIngredient>();
+            newObj.AddComponent<BoxCollider2D>();
+
+            bool isCuttable = other.GetComponent<IngredientDisplay>().isCuttable;
+
+            Debug.Log(isCuttable);
+
+            newObj.GetComponent<Rigidbody2D>().gravityScale = 0;
+
+            if (isCuttable == true)
+            {
+                newObj.AddComponent<cutIngredient>();
+
+                newObj.AddComponent<draganddrop>();
+
+
+            }
+
 
             newObj.GetComponent<RectTransform>().SetParent(parentPanel.transform);
 

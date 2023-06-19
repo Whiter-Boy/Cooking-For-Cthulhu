@@ -38,7 +38,7 @@ public class Oven : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        
+        ingredientPrefab.tag = "Ingredient";
         if (content.transform.childCount != 0)
         {
             ingredient = content.transform.GetChild(0).gameObject;
@@ -76,7 +76,7 @@ public class Oven : MonoBehaviour, IInteractable
         {
             ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
             ingredientPrefab.tag = "Winning Dish";
-            Instantiate(ingredientPrefab, new Vector3(transform.position.x + -1f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
+            Instantiate(ingredientPrefab, new Vector3(transform.position.x + 1f, transform.position.y - 1f, transform.position.z - 0.5f), Quaternion.identity);
         }
 
         else

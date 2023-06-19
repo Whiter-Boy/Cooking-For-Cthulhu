@@ -33,6 +33,8 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public GameObject boundry2;
 
+    public GameObject boundry3;
+
 
 
     // Start is called before the first frame update
@@ -41,6 +43,7 @@ public class BoilingPot : MonoBehaviour, IInteractable
         //minigameStart = false;
         spawnedIngredients = 0;
         
+
     }
 
     // Update is called once per frame
@@ -57,7 +60,7 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        
+        ingredientPrefab.tag = "Ingredient";
 
         if (content.transform.childCount != 0)
         {
@@ -79,8 +82,8 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public void SpawnIngredient()
     {
-        float tempPos = Random.Range(boundry1.transform.position.x, boundry2.transform.position.x);
-        GameObject spawnedIngredient = Instantiate(ingredient, new Vector3(tempPos, 1300f, 1f), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform) as GameObject;
+        float tempPos = Random.Range((boundry1.transform.position.x + 150f), (boundry2.transform.position.x - 150f));
+        GameObject spawnedIngredient = Instantiate(ingredient, new Vector3(tempPos, boundry3.transform.position.y + 100f, 1f), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform) as GameObject;
         spawnedIngredient.GetComponent<Rigidbody2D>().gravityScale = 30;
         spawnedIngredient.tag = "Collect";
         changeIngredientSize = spawnedIngredient;

@@ -17,6 +17,8 @@ public class knifeHandling : MonoBehaviour, IPointerDownHandler, IDragHandler, I
 
     Vector2 previousPosition;
 
+    public GameObject boundry;
+
 
     Rigidbody2D rb;
     BoxCollider2D BoxCollider;
@@ -59,7 +61,7 @@ public class knifeHandling : MonoBehaviour, IPointerDownHandler, IDragHandler, I
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        transform.position = new Vector3(236.8f, 231.5f, 0);
+        transform.position = new Vector3(boundry.transform.position.x, boundry.transform.position.y, 0);
         Debug.Log(transform.position);
         // transform.position = new Vector3(-307.2f, -28, 0);
         RaycastResult raycastResult = eventData.pointerCurrentRaycast;

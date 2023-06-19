@@ -58,6 +58,7 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        ingredientPrefab.tag = "Ingredient";
         if (getIngredients.transform.childCount != 0)
         {
             playerCamera.gameObject.GetComponent<mouseLook>().MinigameStart();
@@ -127,15 +128,14 @@ public class MixingBowl : MonoBehaviour, IInteractable
 
     public void AutoCloseMinigame()
     {
-        Transform[] contentChildren = getIngredients.transform.GetComponentsInChildren<Transform>();
-
-        //for (contentChildren.Count);
-        foreach (Transform child in contentChildren)
+        int children = getIngredients.transform.childCount;
+        for (int i = 0; i < children; i++)
         {
-            i++;
-
-            Destroy(child.gameObject);
+            GameObject destroyChild;
+            destroyChild = getIngredients.transform.GetChild(i).gameObject;
+            Destroy(destroyChild);
         }
+
         //Instantiate(contentPrefab, new Vector3(transform.position.x, transform.position.y , transform.position.z, Quaternion.identity));
         progressBar.gameObject.GetComponent<ProgressBar>().GetCurrentFill(fillAmount);
         playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();

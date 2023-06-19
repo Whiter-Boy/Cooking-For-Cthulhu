@@ -15,6 +15,8 @@ public class IngredientDisplay : MonoBehaviour
 
     public int ingredientMixingNumber;
 
+    public bool isCuttable;
+
 
     void Start()
     {
@@ -38,7 +40,9 @@ public class IngredientDisplay : MonoBehaviour
         {
             transform.localScale = new Vector3(ingredient.ingredientScale.x, ingredient.ingredientScale.y, ingredient.ingredientScale.z);
         }
-            
+        
+
+
     }
 
     void Update()
@@ -53,6 +57,11 @@ public class IngredientDisplay : MonoBehaviour
                 }
 
             }
+        }
+
+        if (ingredient.isCuttable == true)
+        {
+            isCuttable = true;
         }
 
         
