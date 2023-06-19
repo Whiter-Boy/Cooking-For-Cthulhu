@@ -18,5 +18,5 @@ MonoBehaviour:
   ingredientMaterial2: {fileID: 0}
   mixingSprite: {fileID: 21300000, guid: bc5bb04a408537a4ba8613b0436e2e34, type: 3}
   ingredientMesh: {fileID: 6324286251053626827, guid: 8f8017deb0947f840805b70740ff8755, type: 3}
-  ingredientScale: {x: 0, y: 0, z: 0}
+  ingredientScale: {x: 2, y: 2, z: 2}
   CuttedObject: {fileID: 0}

@@ -22,6 +22,8 @@ public class CuttingStation : MonoBehaviour, IInteractable
 
     public GameObject noIngredients;
 
+    private int ingredientNo;
+
     void Start()
     {
         minigamePanel.SetActive(false);
@@ -53,34 +55,39 @@ public class CuttingStation : MonoBehaviour, IInteractable
         }
     }
 
-    public void MingameFinish()
+    public void MinigameFinish()
     {
-        List<int> ingredients = new List<int>();
+        // List<int> ingredients = new List<int>();
 
-        IngredientDisplay[] mixingContent = getIngredients.GetComponentsInChildren<IngredientDisplay>();
+        // IngredientDisplay[] mixingContent = getIngredients.GetComponentsInChildren<IngredientDisplay>();
 
-        foreach (IngredientDisplay t in mixingContent)
+        // foreach (IngredientDisplay t in mixingContent)
+        // {
+        //     if (t != null && t.gameObject != null)
+        //     {
+        //         ingredients.Add(t.gameObject.GetComponent<IngredientDisplay>().ingredientMixingNumber);
+        //     }
+
+        // }
+
+        // int ingredientTotal = ingredients.Sum();
+
+
+
+        // if (ingredientTotal == 10)
+        // {
+        //     Debug.Log("Give player batter");
+        //     ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
+        //     Instantiate(ingredientPrefab, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z + -1f), Quaternion.identity);
+        // }
+
+        ingredientNo = getIngredients.transform.GetChild(0).gameObject.GetComponent<IngredientDisplay>().ingredientMixingNumber;
+
+        if (ingredientNo == 7)
         {
-            if (t != null && t.gameObject != null)
-            {
-                ingredients.Add(t.gameObject.GetComponent<IngredientDisplay>().ingredientMixingNumber);
-            }
-
-        }
-
-        int ingredientTotal = ingredients.Sum();
-
-
-
-        if (ingredientTotal == 10)
-        {
-            Debug.Log("Give player batter");
             ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
-            Instantiate(ingredientPrefab, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z + -1f), Quaternion.identity);
+            Instantiate(ingredientPrefab, new Vector3(transform.position.x + -1f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
         }
-
-
-
         // Stop minigame from happening
 
         minigameStarted = false;

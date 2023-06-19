@@ -129,14 +129,14 @@ public class MixingBowl : MonoBehaviour, IInteractable
     {
         Transform[] contentChildren = getIngredients.transform.GetComponentsInChildren<Transform>();
 
-        for (contentChildren.Count);
+        //for (contentChildren.Count);
         foreach (Transform child in contentChildren)
         {
             i++;
 
             Destroy(child.gameObject);
         }
-        Instantiate(contentPrefab, new Vector3(transform.position.x, transform.position.y , transform.position.z, Quaternion.identity);
+        //Instantiate(contentPrefab, new Vector3(transform.position.x, transform.position.y , transform.position.z, Quaternion.identity));
         progressBar.gameObject.GetComponent<ProgressBar>().GetCurrentFill(fillAmount);
         playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();
         player.gameObject.GetComponent<playerMovement>().MinigameEnd();

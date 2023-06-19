@@ -20,6 +20,11 @@ public class cutIngredient : MonoBehaviour
 
     public GameObject knife;
     public Transform knifePos;
+    public int cuts = 0;
+    public bool alreadyCut = false;
+
+    public GameObject cuttingStation;
+    
 
     void Awake()
     {
@@ -34,16 +39,35 @@ public class cutIngredient : MonoBehaviour
 
         newImage = Resources.Load<Sprite>(name);
 
+        knife = GameObject.FindWithTag("Knife");
+        cuttingStation = GameObject.FindWithTag("Cutting Station");
+
     }   
 
     void Update()
     {
         dist = Vector3.Distance(knife.transform.position, transform.position);
         // Debug.Log(dist);
-        if (dist < 30)
+        if (dist < 30 && alreadyCut == false)
+        {
+            cuts += 1;
+            alreadyCut = true;
+
+        }
+
+        else
+        {
+            alreadyCut = false;
+        }
+
+
+
+        if (cuts == 5)
         {
             oldImage.sprite = newImage;
+            cuttingStation.GetComponent<CuttingStation>().MinigameFinish();
         }
+
 
     }
 

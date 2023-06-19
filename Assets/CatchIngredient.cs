@@ -25,7 +25,7 @@ public class CatchIngredient : MonoBehaviour
     {
         
 
-        Debug.Log(collectedIngredients);
+        //Debug.Log(collectedIngredients);
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -15,6 +15,8 @@ MonoBehaviour:
   name: Butter
   IngredientNumber: 3
   ingredientMaterial: {fileID: 2100000, guid: 0058c50613f2cc24280480313969abda, type: 2}
+  ingredientMaterial2: {fileID: 0}
   mixingSprite: {fileID: 21300000, guid: 72beb8969a029cc4f961ccd1ea8e7356, type: 3}
   ingredientMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   ingredientScale: {x: 0.4, y: 1, z: 0.4}
+  CuttedObject: {fileID: 0}

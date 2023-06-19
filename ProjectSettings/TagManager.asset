@@ -9,6 +9,9 @@ TagManager:
   - Content
   - Canvas
   - Collect
+  - Knife
+  - Cutting Station
+  - boundries
   layers:
   - Default
   - TransparentFX

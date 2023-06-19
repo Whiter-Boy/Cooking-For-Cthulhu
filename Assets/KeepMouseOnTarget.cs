@@ -14,11 +14,14 @@ public class KeepMouseOnTarget : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     private bool minigameFinished;
 
+    public GameObject oven;
+
     [SerializeField]
     private TextMeshProUGUI cookedPercentage;
     // Start is called before the first frame update
     void Start()
     {
+        minigameFinished = false;
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class KeepMouseOnTarget : MonoBehaviour, IPointerEnterHandler, IPointerEx
         {
             Debug.Log("Minigame FInished");
             minigameFinished = true;
+            oven.GetComponent<Oven>().MinigameFinish();
         }
 
         if (mouse_over && minigameFinished == false)
@@ -40,7 +44,6 @@ public class KeepMouseOnTarget : MonoBehaviour, IPointerEnterHandler, IPointerEx
             cookedPercentage.SetText("Cooked: " + ((Math.Round((counter / 7), 1)) * 100) + "/100%");
         }
 
-        Debug.Log(counter);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -65,6 +68,7 @@ public class KeepMouseOnTarget : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void MinigameFinish()
     {
         counter = 0;
+        minigameFinished = false;
     }
 
 }

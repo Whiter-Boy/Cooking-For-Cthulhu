@@ -53,6 +53,14 @@ public class AddIngredients : MonoBehaviour
 
             NewImage.sprite = ingredientsScript.ingredient.mixingSprite;
 
+            newObj.AddComponent<draganddrop>();
+
+            newObj.AddComponent<Rigidbody2D>();
+
+            newObj.AddComponent<PolygonCollider2D>();
+            
+            newObj.AddComponent<cutIngredient>();
+
             newObj.GetComponent<RectTransform>().SetParent(parentPanel.transform);
 
             newObj.transform.localScale = new Vector3(1, 1, 1);
@@ -69,6 +77,7 @@ public class AddIngredients : MonoBehaviour
            // }
 
         }
+
     }
 
 }

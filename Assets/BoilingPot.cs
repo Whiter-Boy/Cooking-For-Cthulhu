@@ -29,6 +29,8 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public GameObject noIngredients;
 
+    private float width;
+
 
 
     // Start is called before the first frame update
@@ -36,12 +38,14 @@ public class BoilingPot : MonoBehaviour, IInteractable
     {
         //minigameStart = false;
         spawnedIngredients = 0;
+        width = minigamePanel.GetComponent<RectTransform>().rect.width;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
+        
         if (changeIngredientSize != null)
         {
             changeIngredientSize.transform.localScale = new Vector3(0.7f, 0.7f, 1f);
@@ -51,9 +55,9 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        ingredient = content.transform.GetChild(0).gameObject;
+        
 
-        if (ingredient != null)
+        if (content.transform.childCount != 0)
         {
             ingredient = content.transform.GetChild(0).gameObject;
             playerCamera.gameObject.GetComponent<mouseLook>().MinigameStart();
@@ -73,10 +77,9 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
     public void SpawnIngredient()
     {
-        float tempPos = Random.Range(302.5f, 798.5f);
-        GameObject spawnedIngredient = Instantiate(ingredient, new Vector3(tempPos, 550f, 1f), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform) as GameObject;
-        spawnedIngredient.AddComponent<Rigidbody2D>().gravityScale = 30;
-        spawnedIngredient.AddComponent<PolygonCollider2D>();
+        float tempPos = Random.Range(150, 1500);
+        GameObject spawnedIngredient = Instantiate(ingredient, new Vector3(tempPos, 1300f, 1f), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform) as GameObject;
+        spawnedIngredient.GetComponent<Rigidbody2D>().gravityScale = 30;
         spawnedIngredient.tag = "Collect";
         changeIngredientSize = spawnedIngredient;
         spawnedIngredients++;
@@ -109,7 +112,10 @@ public class BoilingPot : MonoBehaviour, IInteractable
 
         collectPot.GetComponent<CatchIngredient>().MinigameEnd();
         ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
-        Instantiate(ingredientPrefab, new Vector3(transform.position.x + -1f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
+        if (ingredient.GetComponent<IngredientDisplay>().ingredientMixingNumber == 13)
+        {
+            Instantiate(ingredientPrefab, new Vector3(transform.position.x + -1f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
+        }
         playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();
         player.gameObject.GetComponent<playerMovement>().MinigameEnd();
         minigamePanel.SetActive(false);

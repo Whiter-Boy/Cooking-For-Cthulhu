@@ -38,8 +38,8 @@ public class Oven : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        ingredient = content.transform.GetChild(0).gameObject;
-        if (ingredient != null)
+        
+        if (content.transform.childCount != 0)
         {
             ingredient = content.transform.GetChild(0).gameObject;
             ingredientNo = content.transform.GetChild(0).gameObject.GetComponent<IngredientDisplay>().ingredientMixingNumber;
@@ -72,17 +72,18 @@ public class Oven : MonoBehaviour, IInteractable
     {
         Destroy(content.transform.GetChild(0).gameObject);
 
-        if (ingredientNo == 102)
+        if (ingredientNo == 776)
         {
             ingredientPrefab.GetComponent<IngredientDisplay>().ingredient = product[0];
             ingredientPrefab.tag = "Winning Dish";
+            Instantiate(ingredientPrefab, new Vector3(transform.position.x + -1f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
         }
 
         else
         {
             
         }
-        Instantiate(ingredientPrefab, new Vector3(transform.position.x + -1f, transform.position.y + 1f, transform.position.z), Quaternion.identity);
+        
         playerCamera.gameObject.GetComponent<mouseLook>().MinigameEnd();
         player.gameObject.GetComponent<playerMovement>().MinigameEnd();
         minigamePanel.SetActive(false);

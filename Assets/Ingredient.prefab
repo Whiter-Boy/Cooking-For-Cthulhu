@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8658096799832447454}
   m_Layer: 7
   m_Name: Ingredient
-  m_TagString: Ingredient
+  m_TagString: Winning Dish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
