@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: Flour
   m_EditorClassIdentifier: 
   name: Flour
-  combineValue: 1
+  IngredientNumber: 2
   ingredientMaterial: {fileID: 2100000, guid: 9b8e24918e6dceb48ae9b8cdf940c592, type: 2}
+  ingredientMaterial2: {fileID: 0}
+  mixingSprite: {fileID: 21300000, guid: 9dd826439d95b4e468306ad659df8691, type: 3}
+  ingredientMesh: {fileID: 7033663635467597644, guid: 29f2a5ac1fc6df140871a1f127145279, type: 3}
+  ingredientScale: {x: 1, y: 1, z: 1}
+  isCuttable: 0
+  CuttedObject: {fileID: 0}

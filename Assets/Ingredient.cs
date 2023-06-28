@@ -7,10 +7,21 @@ public class Ingredient : ScriptableObject
 {
     public new string name;
 
-    public int combineValue;
+    public int IngredientNumber;
 
     public Material ingredientMaterial;
 
+    public Material ingredientMaterial2;
+
+    public Sprite mixingSprite;
+
+    public Mesh ingredientMesh;
+
+    public Vector3 ingredientScale;
+
+    public bool isCuttable;
+
+    public GameObject CuttedObject;
 
 
 }

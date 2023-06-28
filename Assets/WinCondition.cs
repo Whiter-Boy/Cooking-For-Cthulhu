@@ -5,6 +5,8 @@ using UnityEngine;
 public class WinCondition : MonoBehaviour
 {
     private GameObject winDish;
+
+    public GameObject winText;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class WinCondition : MonoBehaviour
         if (other.gameObject.CompareTag("Winning Dish"))
         {
             Debug.Log("Hooray!");
+            winText.SetActive(true);
             winDish = other.gameObject;
             Invoke("DishEaten", 2f);
 
@@ -31,6 +34,7 @@ public class WinCondition : MonoBehaviour
     private void DishEaten()
     {
         Destroy(winDish);
+        winText.SetActive(true);
     }
 
     

@@ -12,7 +12,7 @@ Filling:
 Apples, Sugar, cinnamon,
 
 Filling Processes:
-Cutting, Mixing
+Cutting, Mixing, boiling
 
 
 Assembly Process:
